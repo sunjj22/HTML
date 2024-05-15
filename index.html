@@ -57,24 +57,29 @@ function copyText() {
 </html>
 
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>保存图片到手机</title>
+<title>保存图片</title>
 <style>
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
-    text-align: center;
   }
   img {
-    max-width: 90%;
+    width: 300px;
     height: auto;
     border: 1px solid #ddd;
     margin-bottom: 20px;
@@ -94,20 +99,38 @@ function copyText() {
 </style>
 </head>
 <body>
-<img id="myImage" src="https://pss.bdstatic.com/static/superman/img/logo/bd_logo1-66368c33f8.png" alt="Baidu Image">
+<img src="https://pss.bdstatic.com/static/superman/img/logo/bd_logo1-66368c33f8.png" alt="图片加载失败" id="myImage">
 <button onclick="downloadImage()">保存图片</button>
 
 <script>
 function downloadImage() {
-  var image = document.getElementById('myImage').src;
-  var link = document.createElement('a');
-  link.href = image;
-  link.download = 'baidu.png';  // 可以指定下载时的文件名
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  // Creating an XMLHttpRequest to get the image as a Blob
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', document.getElementById('myImage').src, true);
+  xhr.responseType = 'blob';
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      // Create a new URL for the Blob and trigger download
+      var url = window.URL.createObjectURL(xhr.response);
+      var a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'saved_image.png'; // Naming the downloaded file
+      document.body.appendChild(a);
+      a.click();
+
+      // Clean up and revoke the URL
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } else {
+      alert('Failed to download image.');
+    }
+  };
+  xhr.onerror = function() {
+    alert('Error: Unable to download the image.');
+  };
+  xhr.send();
 }
 </script>
 </body>
 </html>
-
