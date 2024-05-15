@@ -7,37 +7,38 @@
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    margin: 40px;
+    margin: 5vh;
     display: flex;
     flex-direction: column; /* 设置布局为垂直方向 */
     align-items: center; /* 水平居中 */
-    justify-content: center; /* 垂直居中 */
+    justify-content: flex-start; /* 从顶部开始布置 */
     min-height: 90vh;
   }
   #copyText, #myImage, button {
-    margin-bottom: 20px; /* 为所有元素添加底部边距 */
+    margin-bottom: 2vh; /* 为所有元素添加底部边距 */
   }
   #copyText {
-    padding: 10px;
+    padding: 2vh;
     background-color: #fff;
     border: 1px solid #ddd;
-    width: 300px;
-    height: 150px;
+    width: 80vw; /* 宽度占视口宽度的80% */
+    height: 20vh; /* 高度设置为视口高度的20% */
     overflow: auto;
+    font-size: 2vh; /* 文字大小也使用视口高度的单位 */
   }
   img {
-    width: 300px;
-    height: auto;
+    max-width: 90vw; /* 图片最大宽度为视口宽度的90% */
+    max-height: 70vh; /* 图片最大高度为视口高度的70% */
     border: 1px solid #ddd;
   }
   button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 1.5vh 3vw;
+    font-size: 2.5vh;
     color: white;
     background-color: #007BFF;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.5vh;
   }
   button:hover {
     background-color: #0056b3;
@@ -56,7 +57,7 @@
 <script>
 function copyText() {
   const text = document.getElementById('copyText').innerText;
-  navigator.clipboard.write: 'UTF-8';Text(text).then(() => {
+  navigator.clipboard.writeText(text).then(() => {
     alert('文案已复制到剪贴板！');
   }, (err) => {
     alert('复制失败，请手动复制文本。');
