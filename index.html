@@ -5,14 +5,17 @@
 <title>分享活动和保存图片</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 5vh;
-    display: flex;
-    flex-direction: column; /* 设置布局为垂直方向 */
-    align-items: center; /* 水平居中 */
-    justify-content: flex-start; /* 从顶部开始布置 */
-    min-height: 90vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin-top: 0; /* 设置顶部边距为0 */
+  margin-right: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 90vh;
   }
   #copyText, #myImage, button {
     margin-bottom: 2vh; /* 为所有元素添加底部边距 */
@@ -22,7 +25,7 @@
     background-color: #fff;
     border: 1px solid #ddd;
     width: 80vw; /* 宽度占视口宽度的80% */
-    height: 20vh; /* 高度设置为视口高度的20% */
+    height: 13vh; /* 高度设置为视口高度的20% */
     overflow: auto;
     font-size: 2vh; /* 文字大小也使用视口高度的单位 */
   }
@@ -45,7 +48,33 @@
   }
 </style>
 </head>
+<style>
+    #header {
+      width: 100%;
+      padding: 0.5vh 0; /* 上下有1vh的内边距，减少高度占用 */
+      padding-right: 4vh;
+      padding-left: 4vh;
+      margin-bottom: 2vh;
+      margin-top: 2vh ;
+      background: linear-gradient(to right, #007BFF, #0056b3); /* 蓝色渐变背景 */
+      color: white; /* 白色字体 */
+      text-align: center; /* 文字居中 */
+      font-size: 3vh; /* 文字大小为视口高度的3% */
+      font-family: 'Arial', sans-serif; /* 使用Arial字体 */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 添加更显著的阴影效果 */
+      border-bottom: 1px solid #004088; /* 底部边框 */
+      font-weight: bold; /* 加粗字体 */
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 文字阴影 */
+    }
+</style>
+
 <body>
+
+
+
+<div id="header">
+    Latent Space 奇绩潜空间
+</div>
 <div id="copyText">
 今天来参与奇绩的分享活动了,认识了很多朋友收获了很多知识,感觉还是很有意思的，收获了不少创业的灵感和生活的洞见。喜欢这种深入浅出、可以进行思想碰撞的交流方式。
 之后这个系列的其他活动也欢迎大家一起来玩!
